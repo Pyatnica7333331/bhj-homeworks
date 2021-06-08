@@ -1,14 +1,18 @@
-//console.log(document.getElementsByClassName("menu__link"));
-
-console.log(document.getElementsByTagName("a").item(0).closest(".menu"));
-console.log(document.querySelector("ul a").className);
-for(let index=0; index < document.querySelectorAll("ul a").length; index++ ) {
-document.getElementsByClassName("menu__link").onclick = () => {
-    document.getElementsByTagName("ul").closest("a");
-    for(let index=0; index < document.querySelectorAll("ul a").length; index++ ) {
-    document.querySelectorAll("ul a").item(index).className = "menu menu_sub menu_active";
-    
-   // return false
+let menuSub = document.getElementsByClassName("menu_sub");
+for(let i=0; i < menuSub.length; i++ ) {
+    menuSub[i].parentElement.onclick = function() {
+        menuSub[i].className = "menu menu_sub menu_active";
+        return false
+    };
 };
-};
-};
+//console.log(document.querySelectorAll("a + ul"));
+//let menuSub = document.querySelectorAll("a + ul");
+//console.log(menuSub);
+//for(let i=0; i < menuSub.length; i++ ) {
+//    console.log(menuSub[i].parentElement);   
+//        menuSub[i].parentElement.onclick = function() {
+//            //console.log(menuSub[i]);   
+//        menuSub[i].getElementsByClassName("menu_sub").className = "menu menu_sub menu_active";
+//        return false
+//    };
+//};
