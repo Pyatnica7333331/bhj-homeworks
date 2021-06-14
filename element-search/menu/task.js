@@ -1,18 +1,15 @@
 let menuSub = document.getElementsByClassName("menu_sub");
 for(let i=0; i < menuSub.length; i++ ) {
-    menuSub[i].parentElement.onclick = function() {
-        menuSub[i].className = "menu menu_sub menu_active";
+    const link = menuSub[i].closest(".menu_main > li").querySelector("a");
+    link.onclick = function() {
+        menuSub[i].classList.toggle("menu_active");
+        let menuActive = document.getElementsByClassName("menu_active");
+        if (menuActive.length > 1) {
+            for(let index = 0; index < menuActive.length; index ++ ) {
+                if (menuActive[index] !== menuSub[i])
+                    menuActive[index].classList.remove("menu_active")
+            };
+        };
         return false
     };
 };
-//console.log(document.querySelectorAll("a + ul"));
-//let menuSub = document.querySelectorAll("a + ul");
-//console.log(menuSub);
-//for(let i=0; i < menuSub.length; i++ ) {
-//    console.log(menuSub[i].parentElement);   
-//        menuSub[i].parentElement.onclick = function() {
-//            //console.log(menuSub[i]);   
-//        menuSub[i].getElementsByClassName("menu_sub").className = "menu menu_sub menu_active";
-//        return false
-//    };
-//};
