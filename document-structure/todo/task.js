@@ -12,7 +12,7 @@ function taskWrite() {
 }
 
 tasksInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" && tasksInput.value !== "") {
+    if (event.key === "Enter" && tasksInput.value.trim() !== "") {
         event.preventDefault();
         tasksList.insertAdjacentHTML("beforeEnd", taskWrite());
         tasksInput.value = "";
@@ -21,7 +21,8 @@ tasksInput.addEventListener("keydown", (event) => {
 
 tasksAdd.addEventListener("click", (event) => {
     event.preventDefault();
-    if (tasksInput.value !== "") {
+    console.log(typeof tasksInput.value);
+    if (tasksInput.value.trim() !== "") {
         tasksList.insertAdjacentHTML("beforeEnd",taskWrite());
         tasksInput.value = "";
     }    
